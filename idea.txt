@@ -1,0 +1,16 @@
+Each row represents one character
+Convert between encoded and ascii representation
+
+Encode(char c):
+c -> ascii
+random(and, or)
+and: even number of 32-bit numbers (and them together)
+or: odd number of 32-bit numbers (and them together)
+
+Decode(A[numbers])
+A.size() even: and it and ascii Convert
+         odd: or it and ascii Convert
+        return: number
+abs(number)
+number = number % 95 + 32 // gets number in range of 32 and 126
+convert to ascii
