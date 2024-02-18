@@ -9,11 +9,18 @@
 
 int generateRandomNumber(int lower_bound, int upper_bound) {
     static std::random_device rd;
-    static std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
-
+    static std::mt19937 gen(rd());
     std::uniform_int_distribution<> distrib(lower_bound, upper_bound);
-
     return distrib(gen);
+}
+
+int numify(char c) { // returns the number representing the character that we will encode (can be either pos or neg)
+    int numified = c;
+    numified -= 32;
+    int randnumFactor = generateRandomNumber(0,10);
+    numified = numified + randnumFactor*95;
+    if (generateRandomNumber(0,1) == 1) numified = numified*-1;
+    return numified;
 }
 
 std::vector<int> binaryVec(int num) {
@@ -26,31 +33,21 @@ std::vector<int> binaryVec(int num) {
 }
 
 std::vector<int> andcode(char c) { // even number
-    int numify = c;
-    numify -=32;
-    int randnumFactor = generateRandomNumber(0,10);
-    numify = numify + randnumFactor*95;
-
+    int numified = numify(c);
     int vecLength = generateRandomNumber(1,5) * 2;
-    if (generateRandomNumber(0,1) == 1) numify = numify*-1;
 
     // TEMP CODE
-    std::cout << numify << std::endl;
-    return binaryVec(numify);
+    std::cout << numified << std::endl;
+    return binaryVec(numified);
 }
 
 std::vector<int> orcode(char c) { // odd number
-    int numify = c;
-    numify -= 32;
-    int randnumFactor = generateRandomNumber(0,10);
-    numify = numify + randnumFactor*95;
-    
+    int numified = numify(c);    
     int vecLength = generateRandomNumber(1,5) * 2 + 1;
-    if (generateRandomNumber(0,1) == 1) numify = numify*-1;
 
     // TEMP CODE
-    std::cout << numify << std::endl;
-    return binaryVec(numify);
+    std::cout << numified << std::endl;
+    return binaryVec(numified);
 }
 
 int main() {
