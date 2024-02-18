@@ -38,8 +38,6 @@ int main() {
         while (iss >> number) { 
             numbers.push_back(number);
         }
-
-
         for (int num: numbers) {
             std::cout << num << " ";
         }
