@@ -8,6 +8,20 @@
 #include <random>
 #include <algorithm>
 
+void printVecNums(std::vector<int> vec) {
+    std::cout << "[";
+    for (int i = 0; i < vec.size(); ++i) {
+        if (i == vec.size()-1) std::cout << vec[i];
+        else std::cout << vec[i] << ", ";
+    }
+    std::cout << "]" << std::endl;
+}
+
+void printBin(int n) {
+    std::bitset<sizeof(int) * 8> bits(n);
+    std::cout << bits;
+}
+
 int generateRandomNumber(int lower_bound, int upper_bound) {
     static std::random_device rd;
     static std::mt19937 gen(rd());
@@ -66,15 +80,21 @@ std::vector<int> makeOutput(std::vector<int> randomizedBitPlaces, int numNumsRet
         if (mutableCopyBitPlaces.size() == 0) { // we finished early
             shuffleVector(constCopyBitPlaces);
             int n = generateRandomNumber(1, constCopyBitPlaces.size());
-            for (int j = 0; j < n; ++j) changeBit(toAppend, constCopyBitPlaces[j]);
+            for (int j = 0; j < n; ++j) toAppend = changeBit(toAppend, constCopyBitPlaces[j]);
         }
         else if (i-1 == numNumsReturn) { // we finished late
-            for (int num : mutableCopyBitPlaces) changeBit(toAppend, num);
+            for (int num : mutableCopyBitPlaces) toAppend = changeBit(toAppend, num);
         }
         else { // do at normal pace
             int n = generateRandomNumber(1, mutableCopyBitPlaces.size());
-            for (int j = 0; j < n; ++j) changeBit(toAppend, mutableCopyBitPlaces[j]);
+            // std::cout << "n = " << n << std::endl;
+            for (int j = 0; j < n; ++j) {
+                // std::cout << "j = " << j << std::endl;
+                // std::cout << mutableCopyBitPlaces[j] << std::endl;
+                toAppend = (toAppend, mutableCopyBitPlaces[j]);
+            }
         }
+        //std::cout << toAppend << std::endl;
         toReturn.emplace_back(toAppend);
     }
     shuffleVector(toReturn);
@@ -96,15 +116,15 @@ std::vector<int> andcode(char c) { // even number
         if(binVec[i] == 0) hasZeroes.push_back(numbits-i-1);
     }
 
-    std::vector<int> binVecShuffled = binVec; 
-    shuffleVector(binVecShuffled);
-    std::vector<int> output = makeOutput(binVecShuffled, codeNumsAmount, setBitToZero, -1);
+    std::vector<int> hasZeroesShuffled = hasZeroes; 
+    shuffleVector(hasZeroesShuffled);
+    std::vector<int> output = makeOutput(hasZeroesShuffled, codeNumsAmount, setBitToZero, -1);
 
     // TEMP CODE
     std::cout << "Numification: " << numified << std::endl;
     std::cout << "Conversion: AND" << std::endl;
-    std::cout << "Output number: " << codeNumsAmount << std::endl;
-    for (int num : hasZeroes) std::cout << num << " " << std::endl;
+    std::cout << "Number of Outputs: " << codeNumsAmount << std::endl;
+    printVecNums(hasZeroes);
     return output;
 }
 
@@ -119,15 +139,15 @@ std::vector<int> orcode(char c) { // odd number
         if(binVec[i] == 1) hasOnes.push_back(numbits-i-1);
     }
 
-    std::vector<int> binVecShuffled = binVec; 
-    shuffleVector(binVecShuffled);
-    std::vector<int> output = makeOutput(binVecShuffled, codeNumsAmount, setBitToZero, 0);
+    std::vector<int> hasOnesShuffled = hasOnes; 
+    shuffleVector(hasOnesShuffled);
+    std::vector<int> output = makeOutput(hasOnesShuffled, codeNumsAmount, setBitToZero, 0);
 
     // TEMP CODE
     std::cout << "Numification: " << numified << std::endl;
     std::cout << "Conversion: OR" << std::endl;
     std::cout << "Output number: " << codeNumsAmount << std::endl;
-    for (int num : hasOnes) std::cout << num << " " << std::endl;
+    printVecNums(hasOnes);
     return output;
 }
 
@@ -138,7 +158,7 @@ std::vector<int> orcode(char c) { // odd number
 int main() {
     char c;
     while(std::cin.get(c)) {
-        std::cout << "Character: " << c << std::endl;
+        std::cout << "\n\nCharacter: " << c << std::endl;
         if (c == std::cin.eof()) break;
         else {
             int randnum = generateRandomNumber(0,1);
@@ -147,11 +167,7 @@ int main() {
             else if (randnum == 1) codeNums = orcode(c);
 
             // testing
-            for (int num : codeNums) {
-                std::cout << num;
-            }
-            std::cout << std::endl;
-
+            printVecNums(codeNums);
         }
     }
 }
