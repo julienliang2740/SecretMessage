@@ -1,0 +1,343 @@
+Character: m
+Numification: 932
+Conversion: AND
+Output number: 4
+31 
+30 
+29 
+28 
+27 
+26 
+25 
+24 
+23 
+22 
+21 
+20 
+19 
+18 
+17 
+16 
+15 
+14 
+13 
+12 
+11 
+10 
+6 
+4 
+3 
+1 
+0 
+0000
+Character: o
+Numification: -839
+Conversion: AND
+Output number: 4
+9 
+8 
+6 
+2 
+1 
+0000
+Character: n
+Numification: 363
+Conversion: AND
+Output number: 2
+31 
+30 
+29 
+28 
+27 
+26 
+25 
+24 
+23 
+22 
+21 
+20 
+19 
+18 
+17 
+16 
+15 
+14 
+13 
+12 
+11 
+10 
+9 
+7 
+4 
+2 
+00
+Character: k
+Numification: -265
+Conversion: OR
+Output number: 3
+31 
+30 
+29 
+28 
+27 
+26 
+25 
+24 
+23 
+22 
+21 
+20 
+19 
+18 
+17 
+16 
+15 
+14 
+13 
+12 
+11 
+10 
+9 
+7 
+6 
+5 
+4 
+2 
+1 
+0 
+-1-1-1
+Character: e
+Numification: 1019
+Conversion: AND
+Output number: 10
+31 
+30 
+29 
+28 
+27 
+26 
+25 
+24 
+23 
+22 
+21 
+20 
+19 
+18 
+17 
+16 
+15 
+14 
+13 
+12 
+11 
+10 
+2 
+0000000000
+Character:  
+Numification: 855
+Conversion: AND
+Output number: 8
+31 
+30 
+29 
+28 
+27 
+26 
+25 
+24 
+23 
+22 
+21 
+20 
+19 
+18 
+17 
+16 
+15 
+14 
+13 
+12 
+11 
+10 
+7 
+5 
+3 
+00000000
+Character: b
+Numification: -446
+Conversion: AND
+Output number: 6
+8 
+7 
+5 
+4 
+3 
+2 
+0 
+000000
+Character: r
+Numification: 747
+Conversion: AND
+Output number: 10
+31 
+30 
+29 
+28 
+27 
+26 
+25 
+24 
+23 
+22 
+21 
+20 
+19 
+18 
+17 
+16 
+15 
+14 
+13 
+12 
+11 
+10 
+8 
+4 
+2 
+0000000000
+Character: u
+Numification: -940
+Conversion: OR
+Output number: 7
+31 
+30 
+29 
+28 
+27 
+26 
+25 
+24 
+23 
+22 
+21 
+20 
+19 
+18 
+17 
+16 
+15 
+14 
+13 
+12 
+11 
+10 
+6 
+4 
+2 
+-1-1-1-1-1-1-1
+Character: g
+Numification: 1021
+Conversion: OR
+Output number: 3
+9 
+8 
+7 
+6 
+5 
+4 
+3 
+2 
+0 
+-1-1-1
+Character: a
+Numification: -825
+Conversion: AND
+Output number: 8
+9 
+8 
+5 
+4 
+3 
+00000000
+Character:  
+Numification: 855
+Conversion: AND
+Output number: 6
+31 
+30 
+29 
+28 
+27 
+26 
+25 
+24 
+23 
+22 
+21 
+20 
+19 
+18 
+17 
+16 
+15 
+14 
+13 
+12 
+11 
+10 
+7 
+5 
+3 
+000000
+Character: l
+Numification: 361
+Conversion: AND
+Output number: 4
+31 
+30 
+29 
+28 
+27 
+26 
+25 
+24 
+23 
+22 
+21 
+20 
+19 
+18 
+17 
+16 
+15 
+14 
+13 
+12 
+11 
+10 
+9 
+7 
+4 
+2 
+1 
+0000
+Character: o
+Numification: 174
+Conversion: OR
+Output number: 9
+7 
+5 
+3 
+2 
+1 
+-1-1-1-1-1-1-1-1-1
+Character: l
+Numification: -171
+Conversion: AND
+Output number: 4
+7 
+5 
+3 
+1 
+0000
