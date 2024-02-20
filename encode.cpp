@@ -35,6 +35,14 @@ void shuffleVector(std::vector<int> & vec) {
     std::shuffle(vec.begin(), vec.end(), g);
 }
 
+void removeElements(std::vector<int>& vec, int n) {
+    if (n >= vec.size()) {
+        std::cerr << "Index out of range!" << std::endl;
+        return;
+    }
+    vec.erase(vec.begin(), vec.begin() + n + 1);
+}
+
 int numify(char c) { // returns the number representing the character that we will encode (can be either pos or neg)
     int numified = c;
     numified -= 32;
@@ -75,29 +83,35 @@ std::vector<int> makeOutput(std::vector<int> randomizedBitPlaces, int numNumsRet
     std::vector<int> toReturn;
     std::vector<int> constCopyBitPlaces = randomizedBitPlaces; // we keep this one constant, gets shuffled though
     std::vector<int> mutableCopyBitPlaces = randomizedBitPlaces; // we mutate this copy, but DONT shuffle order
+
     for (int i = 0; i < numNumsReturn; ++i) {
         int toAppend = maskNum;
         if (mutableCopyBitPlaces.size() == 0) { // we finished early
+            std::cout << "Finished early" << std::endl;
             shuffleVector(constCopyBitPlaces);
             int n = generateRandomNumber(1, constCopyBitPlaces.size());
             for (int j = 0; j < n; ++j) toAppend = changeBit(toAppend, constCopyBitPlaces[j]);
         }
-        else if (i-1 == numNumsReturn) { // we finished late
+        else if (i == numNumsReturn-1) { // we finished late
+            std::cout << "Finishing late" << std::endl;
             for (int num : mutableCopyBitPlaces) toAppend = changeBit(toAppend, num);
         }
         else { // do at normal pace
             int n = generateRandomNumber(1, mutableCopyBitPlaces.size());
-            // std::cout << "n = " << n << std::endl;
+            std::cout << "n = " << n << std::endl;
             for (int j = 0; j < n; ++j) {
-                // std::cout << "j = " << j << std::endl;
-                // std::cout << mutableCopyBitPlaces[j] << std::endl;
-                toAppend = (toAppend, mutableCopyBitPlaces[j]);
+                //std::cout << "j = " << j << std::endl;
+                //std::cout << mutableCopyBitPlaces[j] << std::endl;
+                toAppend = changeBit(toAppend, mutableCopyBitPlaces[j]);
             }
+            removeElements(mutableCopyBitPlaces, n-1);
         }
-        //std::cout << toAppend << std::endl;
+        std::cout << toAppend << std::endl;
+        std::cout << "List: "; printVecNums(mutableCopyBitPlaces);
+        
         toReturn.emplace_back(toAppend);
     }
-    shuffleVector(toReturn);
+    // shuffleVector(toReturn);
     return toReturn;
 }
 
