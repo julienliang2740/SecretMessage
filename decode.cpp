@@ -22,11 +22,11 @@ char decode(std::vector<int> numbers) {
     }
 
     // use ascii range 32 -> 126 (space to ~)
-    std::cout << num << std::endl;
+    //std::cout << num << std::endl;
     num = (abs(num) % 95) + 32;
-    std::cout << num << std::endl;
+    //std::cout << num << std::endl;
     char c = static_cast<char>(num);
-    std::cout << c << std::endl;
+    std::cout << c;
 }
 
 int main() {
@@ -38,10 +38,9 @@ int main() {
         while (iss >> number) { 
             numbers.push_back(number);
         }
-        for (int num: numbers) {
-            std::cout << num << " ";
-        }
-        std::cout << std::endl;
-        decode(numbers);
+        //for (int num: numbers) std::cout << num << " ";
+        //std::cout << std::endl;
+        decode(numbers); 
     }
+    std::cout << std::endl;
 }
